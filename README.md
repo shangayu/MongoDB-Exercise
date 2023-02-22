@@ -84,4 +84,6 @@ music> db.songdetails.find({musicdirector:"A.R.Rahman"},{_id:0,songname:1}).pret
 **List A.R.Rahman’s songs sung by Unnikrishnan.**
 ```
 music> db.songdetails.find({musicdirector:"A.R.Rahman",singer:"Unnikirushnan"},{_id:0,songname:1}).pretty()
-```In here we dont'have that fields so results is empty
+
+*In here we dont'have that fields so results is empty*
+```
