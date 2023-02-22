@@ -85,5 +85,35 @@ music> db.songdetails.find({musicdirector:"A.R.Rahman"},{_id:0,songname:1}).pret
 ```
 music> db.songdetails.find({musicdirector:"A.R.Rahman",singer:"Unnikirushnan"},{_id:0,songname:1}).pretty()
 
-*In here we dont'have that fields so results is empty*
+In here we dont'have that fields so results is empty
+```
+**Delete the song which you don’t like.**
+```
+music> db.songdetails.deleteOne({songname: 'Sollamal thottu sellum thendral'})
+{ acknowledged: true, deletedCount: 1 }
+
+```
+**Add new song which is your favourite.**
+```
+music> db.songdetails.insertOne({songname:"minsarakkannaaa",film:"Padayappa",musicdirector:"A.R.Rahman",singers:"Srinivas"})
+{
+  acknowledged: true,
+  insertedId: ObjectId("63f64770dc6293f3f2218650")
+}
+```
+**List Songs sung by Hariharan from Minsara kanavu film.**
+```
+music> db.songdetails.find({film:"Minsarakanavu",singers:"Hariharan"},{_id:0,songname:1}).pretty()
+[ { songname: 'vennilavevennilave vinnai thaandi' } ]
+```
+**List out the singers’ names in your document.**
+```
+music> db.songdetails.find({},{_id:0,singers:1}).pretty()
+[
+  { singers: 'ShankarMahadevan' },
+  { singers: 'Swarnalatha' },
+  { singers: [ 'Unnikirushnan', 'Anurathasriram' ] },
+  { singers: [ 'Hariharan', 'SathanaSargam' ] },
+  { singers: 'Srinivas' }
+]
 ```
